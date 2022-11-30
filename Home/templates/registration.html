@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Registration{% endblock %}
+{% block search %}{% endblock %}
 {% block body %}
 
 <section class="log-in-section section-b-space">
@@ -22,6 +23,15 @@
                         <div class="input-box">
                             <form class="row g-4" action="#" method="POST">
                                 {% csrf_token %}
+                                {% if messages %}
+                                <ul>
+                                {% for message in messages %}
+                                    <li>
+                                        <p class="text-danger">{{message}}</p>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                                {% endif %}
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" class="form-control" name="username" id="username" placeholder="User Name">

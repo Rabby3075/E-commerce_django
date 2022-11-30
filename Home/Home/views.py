@@ -48,3 +48,7 @@ def REGISTRATION(request):
 def LOGOUT(request):
     auth.logout(request)
     return redirect('login')
+
+
+def USERPROFILE(request):
+    return render(request,'userProfile.html')
